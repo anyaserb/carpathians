@@ -1,0 +1,97 @@
+.formOrderCommon {
+  background-image: url("../../public/images/BackgroundForm.jpg");
+  background-position: 60% 50%;
+  width: 100%;
+  background-position: cover;
+}
+
+.formOrder {
+  padding: 40px 20px;
+}
+
+.formOrderForm {
+  padding: 20px 12px;
+  color: white;
+  text-align: center;
+  background-color: rgb(0, 0, 0, 0.4);
+  border-radius: 10px;
+  max-width: 450px;
+  margin: 0 auto;
+}
+
+.formOrder p {
+  display: block;
+  margin: 20px 0;
+}
+
+.inputContainer {
+  margin-bottom: 35px;
+  position: relative;
+}
+
+.inputContainer input {
+  height: 50px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: inherit;
+  border: 1px solid white;
+  color: white;
+  padding-left: 11px;
+  z-index: 10;
+  position: relative;
+}
+
+.formOrder button {
+  width: 100%;
+  height: 50px;
+  background-color: #ff6e31;
+  color: #f4f5f9;
+  cursor: pointer;
+  border-radius: 7px;
+  font-weight: bold;
+}
+
+.formOrder button:disabled {
+  background-color: #606060;
+  cursor: default;
+}
+
+.label {
+  position: absolute;
+  left: 10px;
+  line-height: 50px;
+  color: rgb(255, 255, 255, 0.6);
+  z-index: 0;
+}
+
+.focusSpan {
+  position: absolute;
+  left: 10px;
+  transform: translateY(-15px);
+  font-size: 12px;
+  color: rgb(255, 255, 255, 0.6);
+  background-color: initial;
+  z-index: 10;
+}
+
+@media screen and (min-width: 768px) {
+  .formOrder {
+    padding: 60px 0;
+  }
+
+  .formOrderForm {
+    padding: 40px;
+    max-width: 500px;
+  }
+}
+
+@media screen and (min-width: 1150px) {
+  .formOrder {
+    padding: 80px 0;
+  }
+
+  .formOrderForm {
+    padding: 60px;
+    max-width: 600px;
+  }
+}

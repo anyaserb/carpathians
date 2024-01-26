@@ -1,0 +1,28 @@
+.buttonContainer {
+  margin: 0 auto;
+  width: 40%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  z-index: 1;
+}
+
+.buttonPrev {
+  transform: scaleX(-1);
+}
+
+.svgArrow {
+  margin-top: 40px;
+}
+
+.sliderArrow {
+  width: 25px;
+  height: 25px;
+}
+
+@media screen and (min-width: 768px) {
+  .sliderArrow {
+    width: 45px;
+    height: 45px;
+  }
+}

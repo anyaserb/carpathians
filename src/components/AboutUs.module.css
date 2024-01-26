@@ -1,0 +1,52 @@
+/* .aboutMeSection {
+  text-align: center;
+  padding: 40px 0;
+} */
+
+/* .aboutMeSection img {
+  width: 100%;
+  max-height: 380px;
+  object-fit: cover;
+  margin-top: 20px;
+} */
+
+/* .aboutMeSection p {
+  color: black;
+  display: block;
+  text-align: left;
+  margin: 15px 30px 0px 30px;
+} */
+
+@media screen and (min-width: 768px) {
+  /* .aboutMeSection {
+    padding: 60px 0;
+  } */
+
+  /* .aboutMeSection img {
+    width: 50%;
+    margin-left: 0;
+    margin-top: 30px;
+    display: block;
+  } */
+
+  /* .aboutMeSection p {
+    margin: 30px 100px 0 20px;
+    width: 30%;
+  } */
+
+  /* .contentWrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+  } */
+}
+
+/* @media screen and (min-width: 1150px) {
+  .aboutMeSection {
+    padding: 80px 0;
+  }
+
+  .aboutMeSection p {
+    margin: 40px 100px 0 20px;
+  }
+} */
