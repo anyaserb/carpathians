@@ -19,26 +19,31 @@ body {
   font-size: 18px;
 }
 
+svg {
+  display: inline-block;
+}
+
 p,
 h1,
 h2,
-h3 {
+h3,
+ul,
+li {
   all: unset;
 }
 
 h2 {
-  font-size: 1.4em;
+  font-size: 1.7em;
 }
 
-button,
-ul,
-li,
-a {
-  all: unset;
+input:focus {
+  outline: none;
 }
 
-a {
-  cursor: pointer;
+@media screen and (min-width: 1536px) {
+  body {
+    font-size: 24px;
+  }
 }
 
 @font-face {
@@ -78,16 +83,6 @@ a {
 
 .slick-dots li button::before {
   content: "" !important;
-}
-
-input:focus {
-  outline: none;
-}
-
-@media screen and (min-width: 1440px) {
-  body {
-    font-size: 24px;
-  }
 }
 
 @media screen and (min-width: 768px) {

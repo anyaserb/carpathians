@@ -3,13 +3,12 @@ import SvgAdvantages2 from "../svg/SvgAdvantages2";
 import SvgAdvantages3 from "../svg/SvgAdvantages3";
 import SvgAdvantages4 from "../svg/SvgAdvantages4";
 import SvgAdvantages5 from "../svg/SvgAdvantages5";
-import styles from "./Advantages.module.css";
 
 const Advantages = () => {
   return (
     <div className="text-center py-10	px-8 md:py-16 lg:py-20" id="advantages">
       <h2>Чому ми?</h2>
-      <ul className="flex flex-col gap-8 mx-auto my-0">
+      <ul className="flex flex-col gap-8 mx-auto mb-0 mt-5 text-left max-w-md md:mt-8 lg:mt-10">
         <li className="flex flex-row gap-3 items-center">
           <div>
             <SvgAdvantages1 />

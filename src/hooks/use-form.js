@@ -5,58 +5,57 @@ const useForm = (openNewPopUp = true) => {
   const [popUp, setPopUp] = useState(false);
   const [thanksPopUp, setThanksPopUp] = useState(false);
 
-  const [nameState, setNameState] = useState({
-    value: "",
-    isValid: false
-  });
-  const [phoneState, setPhoneState] = useState({
-    value: "",
-    isValid: false
-  });
-  const [emailState, setEmailState] = useState({
-    value: "",
-    isValid: false
+  const [formData, setFormData] = useState({
+    name: { value: "", isValid: false },
+    phone: { value: "", isValid: false },
+    email: { value: "", isValid: false }
   });
 
   useEffect(() => {
     if (
-      (nameState.isValid && phoneState.isValid) ||
-      (nameState.isValid && emailState.isValid)
+      (formData.name.isValid && formData.phone.isValid) ||
+      (formData.name.isValid && formData.email.isValid)
     ) {
       setFormIsValid(true);
     } else {
       setFormIsValid(false);
     }
-
-    console.log(formIsValid);
-  }, [nameState, phoneState, emailState]);
+  }, [formData]);
 
   const submitForm = (event) => {
     event.preventDefault();
 
     let formData = {
-      name: nameState.value,
-      phone: phoneState.value,
-      email: emailState.value
+      name: formData.name.value,
+      phone: formData.phone.value,
+      email: formData.email.value
     };
 
     if (formIsValid) {
       const fetchData = async () => {
-        const response = await fetch(
-          "https://carpathians-5d74d-default-rtdb.firebaseio.com/clients.json",
-          {
-            method: "POST",
-            body: JSON.stringify(formData),
-            headers: {
-              "Content-Type": "application/json"
+        try {
+          const response = await fetch(
+            "https://carpathians-5d74d-default-rtdb.firebaseio.com/clients.json",
+            {
+              method: "POST",
+              body: JSON.stringify(formData),
+              headers: {
+                "Content-Type": "application/json"
+              }
             }
-          }
-        );
-        console.log("Дані успішно відравлені", response);
+          );
+        } catch (error) {
+          console.log("Дані успішно відравлені");
+        }
       };
-      setNameState({ value: "", isValid: false });
-      setPhoneState({ value: "", isValid: false });
-      setEmailState({ value: "", isValid: false });
+
+      console.error("Помилка відправлення даних", error);
+
+      setFormData({
+        name: { value: "", isValid: false },
+        phone: { value: "", isValid: false },
+        email: { value: "", isValid: false }
+      });
 
       fetchData();
 
@@ -74,7 +73,10 @@ const useForm = (openNewPopUp = true) => {
       event.target.value.trim().length >= 2 &&
       event.target.value.trim().length <= 60;
 
-    setNameState({ value: event.target.value, isValid: isValid });
+    setFormData((prevData) => ({
+      ...prevData,
+      name: { value: event.target.value, isValid: isValid }
+    }));
   };
 
   const changeInputPhoneHandler = (event) => {
@@ -82,8 +84,10 @@ const useForm = (openNewPopUp = true) => {
     const value = event.target.value;
     const isValid = regex.test(value);
 
-    setPhoneState({ value: value, isValid: isValid });
-    console.log(value, isValid);
+    setFormData((prevData) => ({
+      ...prevData,
+      phone: { value: value, isValid: isValid }
+    }));
   };
 
   const changeInputEmailHandler = (event) => {
@@ -91,15 +95,15 @@ const useForm = (openNewPopUp = true) => {
     const value = event.target.value;
     const isValid = regex.test(value);
 
-    setEmailState({ value: value, isValid: isValid });
-    console.log(value, isValid);
+    setFormData((prevData) => ({
+      ...prevData,
+      email: { value: value, isValid: isValid }
+    }));
   };
 
   return {
     formIsValid,
-    nameState,
-    phoneState,
-    emailState,
+    formData,
     submitForm,
     popUp,
     setPopUp,

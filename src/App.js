@@ -8,6 +8,8 @@ import Guides from "./components/Guides";
 import Preparation from "./components/Preparation";
 import { useState } from "react";
 import FormOrder from "./components/FormOrder";
+import "../node_modules/slick-carousel/slick/slick.css";
+import "../node_modules/slick-carousel/slick/slick-theme.css";
 
 function App() {
   const [burgerMenu, setBurgerMenu] = useState(false);

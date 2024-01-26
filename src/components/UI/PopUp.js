@@ -1,19 +1,29 @@
-import styles from "./PopUp.module.css";
 import SvgCross from "../../svg/SvgCross";
 import React from "react";
 import ReactDOM from "react-dom";
 
 const Backdrop = (props) => {
-  return <div className={styles.backdrop} onClick={props.onConfirm}></div>;
+  return (
+    <div
+      className="fixed top-0 left-0 w-full h-screen	z-40 bg-blackTrans60"
+      onClick={props.onConfirm}
+    ></div>
+  );
 };
 
 const ModalOverlay = (props) => {
   return (
-    <div className={styles.modal}>
-      <div className={styles.svg} onClick={props.onConfirm}>
+    <div
+      className="fixed top-[20vh] left-1/2 -translate-x-2/4	w-4/5	z-50 overflow-hidden bg-popUp bg-cover bg-bottom	 
+    h-[60vh] text-center rounded-lg flex flex-col justify-center gap-2 px-8 max-w-sm md:max-w-lg md:px-12 lg:max-w-xl"
+    >
+      <div
+        className="absolute right-5 top-5 cursor-pointer"
+        onClick={props.onConfirm}
+      >
         <SvgCross />
       </div>
-      <h3>{props.header}</h3>
+      <h3 className="text-3xl">{props.header}</h3>
       <div>{props.content}</div>
     </div>
   );

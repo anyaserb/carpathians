@@ -1,20 +1,18 @@
-import styles from "./ButtonSlider.module.css";
 import SvgSliderArrow from "../../svg/SvgSliderArrow";
 
 const ButtonSlider = (props) => {
   return (
-    <div className={styles.buttonContainer}>
+    <div className="mx-auto mt-2 w-2/5	flex justify-between z-10 md:mt-4">
       <button
-        className={styles.buttonPrev}
+        className="-scale-x-100	y"
         onClick={() => props.slider?.current?.slickPrev()}
       >
-        <SvgSliderArrow className={styles.sliderArrow} />
+        <SvgSliderArrow className="w-6 h-6 md:w-11 md:h-11" />
       </button>
       <button
-        className={styles.buttonNext}
         onClick={() => props.slider?.current?.slickNext()}
       >
-        <SvgSliderArrow className={styles.sliderArrow} />
+        <SvgSliderArrow className="w-6 h-6 md:w-11 md:h-11" />
       </button>
     </div>
   );
